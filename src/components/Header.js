@@ -5,11 +5,11 @@ export function Header() {
   return (
     <Navbar bg="dark" variant="dark">
       <Container>
-          <LinkContainer to="/">
-            <Navbar.Brand>
-                <h1>NotePad</h1>
-            </Navbar.Brand>
-          </LinkContainer>
+        <LinkContainer to="/">
+          <Navbar.Brand>
+            <h1>NotePad</h1>
+          </Navbar.Brand>
+        </LinkContainer>
       </Container>
     </Navbar>
   );
