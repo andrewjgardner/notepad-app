@@ -1,9 +1,9 @@
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Navbar } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
-export default function Header() {
+export function Header() {
   return (
-    <Navbar>
+    <Navbar bg="dark" variant="dark">
       <Container>
           <LinkContainer to="/">
             <Navbar.Brand>
