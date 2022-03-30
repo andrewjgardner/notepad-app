@@ -9,10 +9,12 @@ export default function Home() {
 
   function handleChange(e) {
     setInput(e.target.value);
+    storage.setSessionStorage("title", e.target.value);
   }
 
   function handleDescription(e) {
     setDescription(e.target.value);
+    storage.setSessionStorage("description", e.target.value);
   }
 
   function handleSubmit(e) {
@@ -27,7 +29,7 @@ export default function Home() {
     <Container>
       <Row>
         <h1>Home</h1>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formInput">
             <Form.Label>Input</Form.Label>
             <Form.Control
@@ -51,11 +53,16 @@ export default function Home() {
           </Button>
         </Form>
       </Row>
-    <Row>
-      <ListGroup>
-        {list.map((item, index) => ( <ListGroupItem>{index}, {item.title}, {item.description} </ListGroupItem>) )}
-      </ListGroup>
-    </Row>
+      <Row>
+        <ListGroup>
+          {list.map((item, index) => (
+            <ListGroupItem>
+              {index}, {item.title}, {item.description}
+            </ListGroupItem>
+          ))}
+        </ListGroup>
+      </Row>
+      <Row></Row>n
     </Container>
   );
 }
