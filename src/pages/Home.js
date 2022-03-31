@@ -1,11 +1,20 @@
 import { Button, Container, Form, ListGroup, ListGroupItem, Row } from "react-bootstrap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import storage from "../services/storage";
 
 export default function Home() {
   const [title, setInput] = useState("");
   const [description, setDescription] = useState("");
   const [list, setList] = useState([]);
+
+  useEffect (() => {
+    const list = storage.getLocalStorage("list", []);
+    setList(list);
+    const title = storage.getSessionStorage("title", "");
+    setInput(title);
+    const description = storage.getSessionStorage("description", "");
+    setDescription(description);
+  }, [])
 
   function handleChange(e) {
     setInput(e.target.value);
@@ -22,9 +31,16 @@ export default function Home() {
     setList([...list, { title, description }]);
     storage.setLocalStorage("list", [...list, { title, description }]);
     setInput("");
+    storage.setSessionStorage("title", "");
     setDescription("");
+    storage.setSessionStorage("description", "");	
   }
 
+  function handleClear() {
+    setList([]);
+    storage.setLocalStorage("list", []);
+  }
+  
   return (
     <Container>
       <Row>
@@ -54,6 +70,9 @@ export default function Home() {
         </Form>
       </Row>
       <Row>
+        <Button variant="danger" onClick={handleClear}>Clear</Button>
+      </Row>
+      <Row>
         <ListGroup>
           {list.map((item, index) => (
             <ListGroupItem>
@@ -62,7 +81,6 @@ export default function Home() {
           ))}
         </ListGroup>
       </Row>
-      <Row></Row>n
     </Container>
   );
 }

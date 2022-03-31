@@ -42,6 +42,9 @@ should also be navigated back to the previous page when submitting the form.
 Use an npm package in your application - you must implement at least 1 npm package of your
 choice (other than react-router) in your application (https://www.npmjs.com/)
 
+# NPM Packages
+
+https://www.npmjs.com/package/uuid
 
 ## Available Scripts
 
