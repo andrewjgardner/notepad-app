@@ -2,8 +2,9 @@ import { Button, Container, Navbar } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import storage from "../services/storage";
 
-export function Header() {
+export function Header(props) {
   function handleClear() {
+    props.setList([]);
     storage.setLocalStorage("list", []);
   }
 

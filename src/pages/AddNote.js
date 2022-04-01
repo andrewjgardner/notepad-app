@@ -2,7 +2,7 @@ import { Container, Button, Form, Row} from "react-bootstrap";
 import storage from "../services/storage";
 import { useState } from "react";
 
-export function AddNote() {
+export function AddNote(props) {
  const [title, setInput] = useState("");
   const [description, setDescription] = useState("");
 
@@ -18,18 +18,13 @@ export function AddNote() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    setList([...list, { title, description }]);
-    storage.setLocalStorage("list", [...list, { title, description }]);
+    props.handleSubmit({ title, description }); 
     setInput("");
     storage.setSessionStorage("title", "");
     setDescription("");
     storage.setSessionStorage("description", "");	
   }
 
-  function handleClear() {
-    setList([]);
-    storage.setLocalStorage("list", []);
-  }
   <Container>
     <Row>
       <h1>Home</h1>
