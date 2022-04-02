@@ -7,10 +7,8 @@ export function AddEditForm(props) {
     const [content, setContent] = useState('')
 
     useEffect(() => {
-        const title = storage.getSessionStorage('title', '')
-        const content = storage.getSessionStorage('content', '')
-        setTitle(title)
-        setContent(content)
+        setTitle(storage.getSessionStorage('title', ''))
+        setContent(storage.getSessionStorage('content', ''))
     }, [])
 
     function handleChange(e) {
@@ -24,10 +22,10 @@ export function AddEditForm(props) {
     }
 
     function handleSubmit(e) {
-        e.preventDefault() 
+        e.preventDefault()
         storage.setSessionStorage('title', '')
         storage.setSessionStorage('content', '')
-        props.handleSubmit({title, content});        
+        props.handleSubmit({ title, content })
     }
 
     return (

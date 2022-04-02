@@ -13,7 +13,6 @@ export function AddNote(props) {
     return (
         <Container>
             <Row>
-                <h1>Home</h1>
                 <AddEditForm handleSubmit={handleSubmit} />
             </Row>
         </Container>
