@@ -4,7 +4,7 @@ import {Home, AddNote} from "../pages";
 export function Router(props) {
   function setList(p) {
     const list = p.list;
-    p.setList(list);
+    props.setList(list);
   }  
 
   function handleSubmit(p) {
@@ -13,7 +13,7 @@ export function Router(props) {
 
   return (
     <Routes>
-      <Route path="/" element={<Home list={props.list} setList={setList}/>} />
+      <Route index element={<Home list={props.list} setList={setList}/>} />
       <Route path="/add" element={<AddNote handleSubmit={handleSubmit}/>} />
     </Routes>
   );
