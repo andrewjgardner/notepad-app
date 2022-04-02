@@ -4,16 +4,17 @@ import { AddEditForm } from '../components'
 
 export function AddNote(props) {
     const navigate = useNavigate()
+    const keys = { title: 'addtitle', content: 'addcontent' }
 
     function handleSubmit(p) {
-        props.handleSubmit(p)
+        props.handleAdd(p)
         navigate('/')
     }
 
     return (
         <Container>
             <Row>
-                <AddEditForm handleSubmit={handleSubmit} />
+                <AddEditForm handleSubmit={handleSubmit} keys={keys} />
             </Row>
         </Container>
     )

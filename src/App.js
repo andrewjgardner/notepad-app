@@ -10,7 +10,7 @@ function App() {
         setList(list)
     }, [])
 
-    function handleSubmit(props) {
+    function handleAdd(props) {
         const title = props.title
         const content = props.content
 
@@ -44,7 +44,7 @@ function App() {
             <Router
                 list={list}
                 setList={setList}
-                handleSubmit={handleSubmit}
+                handleAdd={handleAdd} 
                 handleDelete={handleDelete}
                 handleEdit={handleEdit}
             />

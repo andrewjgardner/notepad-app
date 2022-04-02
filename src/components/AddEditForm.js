@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import storage from '../services/storage'
 
@@ -7,24 +7,26 @@ export function AddEditForm(props) {
     const [content, setContent] = useState('')
 
     useEffect(() => {
-        setTitle(storage.getSessionStorage('title', ''))
-        setContent(storage.getSessionStorage('content', ''))
+        const title = storage.getSessionStorage(props.keys.title, '')
+        const content = storage.getSessionStorage(props.keys.content, '')
+        setTitle(title)
+        setContent(content)
     }, [])
-
+    
     function handleChange(e) {
         setTitle(e.target.value)
-        storage.setSessionStorage('title', e.target.value)
+        storage.setSessionStorage(props.keys.title, e.target.value)
     }
 
     function handleContent(e) {
         setContent(e.target.value)
-        storage.setSessionStorage('content', e.target.value)
+        storage.setSessionStorage(props.keys.content, e.target.value)
     }
 
     function handleSubmit(e) {
         e.preventDefault()
-        storage.setSessionStorage('title', '')
-        storage.setSessionStorage('content', '')
+        storage.setSessionStorage(props.keys.title, '')
+        storage.setSessionStorage(props.keys.content, '')
         props.handleSubmit({ title, content })
     }
 
