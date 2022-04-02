@@ -12,16 +12,22 @@ function App() {
 
     function handleSubmit(props) {
         const title = props.title
-        const description = props.description
+        const content = props.content
 
-        setList([...list, { title, description }])
-        storage.setLocalStorage('list', [...list, { title, description }])
+        setList([...list, { title, content }])
+        storage.setLocalStorage('list', [...list, { title, content }])
+    }
+
+    function handleDelete(index) {
+        const newList = list.filter((item, i) => i !== index)
+        setList(newList)
+        storage.setLocalStorage('list', newList)
     }
 
     return (
         <div className="App">
             <Header setList={setList} />
-            <Router list={list} setList={setList} handleSubmit={handleSubmit} />
+            <Router list={list} setList={setList} handleSubmit={handleSubmit} handleDelete={handleDelete} />
         </div>
     )
 }

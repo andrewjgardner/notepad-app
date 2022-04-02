@@ -1,14 +1,13 @@
-import {
-    Button,
-    Container,
-    ListGroup,
-    ListGroupItem,
-    Row,
-} from 'react-bootstrap'
+import { Button, Container, ListGroup, Row } from 'react-bootstrap'
 import { useNavigate } from 'react-router'
+import { CustomRow } from '../components'
 
 export function Home(props) {
     const navigate = useNavigate()
+
+    function handleDelete(p) {
+        props.handleDelete(p)
+    }
 
     return (
         <Container>
@@ -19,9 +18,12 @@ export function Home(props) {
             <Row>
                 <ListGroup>
                     {props.list.map((item, index) => (
-                        <ListGroupItem>
-                            {index}, {item.title}, {item.description}
-                        </ListGroupItem>
+                        <CustomRow
+                            index={index}
+                            title={item.title}
+                            content={item.content}
+                            handleDelete={handleDelete}
+                        />
                     ))}
                 </ListGroup>
             </Row>
