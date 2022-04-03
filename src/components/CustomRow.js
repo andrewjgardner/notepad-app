@@ -1,18 +1,19 @@
-import { Button, ListGroupItem } from 'react-bootstrap'
+import { Button, ListGroup } from 'react-bootstrap'
 import { useNavigate } from 'react-router'
 
 export function CustomRow(props) {
     let navigate = useNavigate()
 
     return (
-        <ListGroupItem>
+        <ListGroup.Item
+            className='d-flex justify-content-between align-items-center'
+            action={true}
+            onClick={() => navigate(`/edit/${props.index}`)}
+        >
             {props.index}, {props.title}, {props.content}
-            <Button onClick={() => navigate(`/edit/${props.index}`)}>
-                Edit
-            </Button>
             <Button onClick={() => props.handleDelete(props.index)}>
                 Delete
             </Button>
-        </ListGroupItem>
+        </ListGroup.Item>
     )
 }
