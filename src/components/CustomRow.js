@@ -4,14 +4,21 @@ import { useNavigate } from 'react-router'
 export function CustomRow(props) {
     let navigate = useNavigate()
 
+    const dateTime = new Date(props.date) 
+
     return (
         <ListGroup.Item
-            className='d-flex justify-content-between align-items-center'
+            className="d-flex justify-content-between align-items-center"
             action={true}
-            onClick={() => navigate(`/edit/${props.index}`)}
+            onClick={() => navigate(`/edit/${props.id}`)}
         >
-            {props.index}, {props.title}, {props.content}
-            <Button onClick={() => props.handleDelete(props.index)}>
+            {dateTime.toLocaleString()}, {props.title}, {props.content}
+            <Button
+                onClick={(e) => {
+                    e.stopPropagation()
+                    props.handleDelete(props.id)
+                }}
+            >
                 Delete
             </Button>
         </ListGroup.Item>

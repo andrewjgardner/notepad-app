@@ -33,7 +33,7 @@ export function Router(props) {
             />
             <Route path="/add" element={<AddNote handleAdd={handleAdd} />} />
             <Route
-                path="/edit/:index"
+                path="/edit/:id"
                 element={<EditNote handleEdit={handleEdit} />}
             />
         </Routes>

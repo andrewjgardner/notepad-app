@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import storage from './services/storage'
+import uuid from './services/uuid'
 import { Header, Router } from './components'
 
 function App() {
@@ -11,25 +12,29 @@ function App() {
     }, [])
 
     function handleAdd(props) {
+        const id = uuid.generateUUID()
+        const date = uuid.getUUIDTime(id)
         const title = props.title
         const content = props.content
 
-        setList([...list, { title, content }])
-        storage.setLocalStorage('list', [...list, { title, content }])
+        setList([...list, { id, date, title, content }])
+        storage.setLocalStorage('list', [...list, { id, date, title, content }])
     }
 
-    function handleDelete(index) {
-        const newList = list.filter((item, i) => i !== index)
+    function handleDelete(id) {
+        const newList = list.filter((item) => item.id !== id) 
         setList(newList)
         storage.setLocalStorage('list', newList)
     }
 
-    function handleEdit(index, props) {
-        const newList = list.map((item, i) => {
-            if (i == index) {
+    function handleEdit(id, props) {
+        const newList = list.map((item) => {
+            if (item.id === id) {
                 return {
+                    id : item.id, 
+                    date: item.date,
                     title: props.title,
-                    content: props.content
+                    content: props.content,
                 }
             }
             return item
@@ -44,7 +49,7 @@ function App() {
             <Router
                 list={list}
                 setList={setList}
-                handleAdd={handleAdd} 
+                handleAdd={handleAdd}
                 handleDelete={handleDelete}
                 handleEdit={handleEdit}
             />

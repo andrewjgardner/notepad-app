@@ -6,13 +6,13 @@ import storage from '../services/storage'
 export function EditNote(props) {
     const navigate = useNavigate()
     const params = useParams()
-    const index = params.index
+    const id = params.id
     const keys = { title: 'edittitle', content: 'editcontent' }
     const list = storage.getLocalStorage('list', [])
-    const item = list[index]
-
+    const item = list.find((item) => item.id === id)
+    
     function handleSubmit(p) {
-        props.handleEdit(index, p)
+        props.handleEdit(id, p)
         navigate('/')
     }
 
