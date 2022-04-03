@@ -12,7 +12,7 @@ export function CustomRow(props) {
             action={true}
             onClick={() => navigate(`/edit/${props.id}`)}
         >
-            {dateTime.toLocaleString()}, {props.title}, {props.content}
+            {dateTime.toLocaleTimeString()}, {props.title}, {props.content}
             <Button
                 onClick={(e) => {
                     e.stopPropagation()
