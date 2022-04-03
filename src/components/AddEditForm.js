@@ -9,10 +9,18 @@ export function AddEditForm(props) {
     useEffect(() => {
         const title = storage.getSessionStorage(props.keys.title, '')
         const content = storage.getSessionStorage(props.keys.content, '')
+
         setTitle(title)
         setContent(content)
     }, [])
     
+    useEffect(() => {
+        if (props.item) {
+            setTitle(props.item.title)
+            setContent(props.item.content)
+        }
+    }, [props.item])
+
     function handleChange(e) {
         setTitle(e.target.value)
         storage.setSessionStorage(props.keys.title, e.target.value)

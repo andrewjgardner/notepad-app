@@ -1,15 +1,7 @@
-import { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { Home, AddNote, EditNote } from '../pages'
-import storage from '../services/storage'
 
 export function Router(props) {
-    useEffect(() => {
-        storage.setSessionStorage('index', -1)
-        storage.setSessionStorage('title', '')
-        storage.setSessionStorage('content', '')
-    }, [])
-
     function setList(p) {
         const list = p.list
         props.setList(list)
@@ -23,8 +15,8 @@ export function Router(props) {
         props.handleDelete(p)
     }
 
-    function handleEdit(p) {
-        props.handleEdit(p)
+    function handleEdit(i, p) {
+        props.handleEdit(i, p)
     }
 
     return (

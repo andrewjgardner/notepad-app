@@ -26,10 +26,10 @@ function App() {
 
     function handleEdit(index, props) {
         const newList = list.map((item, i) => {
-            if (i === index) {
+            if (i == index) {
                 return {
                     title: props.title,
-                    content: props.content,
+                    content: props.content
                 }
             }
             return item
