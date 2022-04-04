@@ -1,4 +1,4 @@
-### Notepad App
+# Notepad App
 
 ## Task 1: Create a Header that will be displayed across all pages
 
@@ -44,10 +44,16 @@ choice (other than react-router) in your application (https://www.npmjs.com/)
 
 # NPM Packages
 
-<ul>
-<li>https://www.npmjs.com/package/react-bootstrap/</li>
-<li>https://www.npmjs.com/package/react-router-dom/</li>
-<li>https://www.npmjs.com/package/react-router-bootstrap</li>
-<li>https://www.npmjs.com/package/uuid/</li>
-<li>https://www.npmjs.com/package/uuid-time/</li>
-</ul>
+- https://www.npmjs.com/package/react-bootstrap/
+- https://www.npmjs.com/package/react-router-dom/
+- https://www.npmjs.com/package/react-router-bootstrap
+- https://www.npmjs.com/package/uuid/
+- https://www.npmjs.com/package/uuid-time/
+
+# Features
+
+- Splits notes into groups based on the day they were created
+- Unique ID for each note
+- UUID v1 includes timestamp
+
+To test the grouping of days, you can edit the date property of a note (in unix time)
