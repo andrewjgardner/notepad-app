@@ -45,9 +45,9 @@ choice (other than react-router) in your application (https://www.npmjs.com/)
 # NPM Packages
 
 <ul>
-<li>**[react-bootstrap](https://www.npmjs.com/package/react-bootstrap/)**</li>
-<li>**[react-router-dom](https://www.npmjs.com/package/react-router-dom/)**</li>
-<li>**[react-router-bootstrap](https://www.npmjs.com/package/react-router-bootstrap/)**</li>
-<li>**[uuid](https://www.npmjs.com/package/uuid/)**</li>
-<li>**[uuid-time](https://www.npmjs.com/package/uuid-time/)**</li>
+<li>https://www.npmjs.com/package/react-bootstrap/<li>
+<li>https://www.npmjs.com/package/react-router-dom/<li>
+<li>https://www.npmjs.com/package/react-router-bootstrap<li>
+<li>https://www.npmjs.com/package/uuid/</li>
+<li>https://www.npmjs.com/package/uuid-time/</li>
 </ul>
