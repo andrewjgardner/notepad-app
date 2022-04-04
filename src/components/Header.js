@@ -16,7 +16,7 @@ export function Header(props) {
             <h1>NotePad</h1>
           </Navbar.Brand>
         </LinkContainer>
-        <Button onClick={handleClear}>Clear</Button>
+        <Button variant="danger" onClick={handleClear}>Clear</Button>
       </Container>
     </Navbar>
   );

@@ -23,6 +23,7 @@ export function EditNote(props) {
                     handleSubmit={handleSubmit}
                     keys={keys}
                     item={item}
+                    label="Save Note"
                 />
             </Row>
         </Container>

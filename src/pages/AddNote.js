@@ -14,7 +14,7 @@ export function AddNote(props) {
     return (
         <Container>
             <Row>
-                <AddEditForm handleSubmit={handleSubmit} keys={keys} />
+                <AddEditForm handleSubmit={handleSubmit} keys={keys} label="Add Note" />
             </Row>
         </Container>
     )

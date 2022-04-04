@@ -4,6 +4,12 @@ import uuid from '../services/uuid'
 
 export function HomeList(props) {
     const listSplitOnDays = splitArrayOnDays(props.list)
+    const dateOptions = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    }
 
     function handleDelete(p) {
         props.handleDelete(p)
@@ -33,8 +39,15 @@ export function HomeList(props) {
     }
 
     return listSplitOnDays.map((day) => (
-        <Row>
-            <h2>{new Date(day[0].date).toLocaleDateString()}</h2>
+        <Row className='border bg-light bg-gradient py-4'>
+            <Row className='d-flex text-center justify-content-center'> 
+                <h2>
+                    {new Date(day[0].date).toLocaleDateString(
+                        'en-AU',
+                        dateOptions
+                    )}
+                </h2>
+            </Row>
             <ListGroup key={uuid.generateUUID()}>
                 {day.map((p) => (
                     <CustomRow handleDelete={handleDelete} {...p} />

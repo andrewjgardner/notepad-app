@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Form, Button } from 'react-bootstrap'
+import { Row, Form, Button } from 'react-bootstrap'
 import storage from '../services/storage'
 
 export function AddEditForm(props) {
@@ -13,7 +13,7 @@ export function AddEditForm(props) {
         setTitle(title)
         setContent(content)
     }, [])
-    
+
     useEffect(() => {
         if (props.item) {
             setTitle(props.item.title)
@@ -39,28 +39,43 @@ export function AddEditForm(props) {
     }
 
     return (
-        <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formInput">
-                <Form.Label>Title</Form.Label>
-                <Form.Control
-                    type="text"
-                    value={title}
-                    onChange={handleChange}
-                    placeholder="Enter text"
-                />
-            </Form.Group>
-            <Form.Group controlId="formcontent">
-                <Form.Label>content</Form.Label>
-                <Form.Control
-                    as="textarea"
-                    value={content}
-                    onChange={handleContent}
-                    placeholder="Enter content"
-                />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-                Submit
-            </Button>
+        <Form
+            className="border bg-light bg-gradient py-4 px-5 mt-4"
+            onSubmit={handleSubmit}
+        >
+            <Row className="pb-3">
+                <Form.Group controlId="formInput">
+                    <Form.Label>
+                        <h2>Title</h2>
+                    </Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="Enter title"
+                        size="lg"
+                        value={title}
+                        onChange={handleChange}
+                    />
+                </Form.Group>
+            </Row>
+            <Row className="py-3">
+                <Form.Group controlId="formcontent">
+                    <Form.Label>
+                        <h2>Content</h2>
+                    </Form.Label>
+                    <Form.Control
+                        as="textarea"
+                        rows={10}
+                        value={content}
+                        onChange={handleContent}
+                        placeholder="Enter content"
+                    />
+                </Form.Group>
+            </Row>
+            <Row className="py-4 px-5">
+                <Button variant="primary" type="submit">
+                    <h2>{props.label}</h2>
+                </Button>
+            </Row>
         </Form>
     )
 }
