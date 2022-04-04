@@ -39,7 +39,7 @@ export function HomeList(props) {
     }
 
     return listSplitOnDays.map((day) => (
-        <Row className='border bg-light bg-gradient py-4'>
+        <Row className='border bg-light bg-gradient mb-2 py-4'>
             <Row className='d-flex text-center justify-content-center'> 
                 <h2>
                     {new Date(day[0].date).toLocaleDateString(
