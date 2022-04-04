@@ -60,6 +60,8 @@ To test the grouping of days, you can edit the date property of a note (in unix 
 (The notes are ordered by id (which have the original timestamp) so editing the date property of the note will not change the order))
 
 Test values:
+
 key: list
+
 value :
 [{"id":"45f98540-b3d1-11ec-b4af-d5d3cc9f8221","date":1649047194516,"title":"asdf","content":"adf"},{"id":"48105750-b3d1-11ec-b4af-d5d3cc9f8221","date":1649047198023121,"title":"asdf","content":"asdf"},{"id":"49aa7f50-b3d1-11ec-b4af-d5d3cc9f8221","date":1649047200709,"title":"asdf","content":"asdfasdf"}]
