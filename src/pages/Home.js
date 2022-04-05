@@ -22,6 +22,7 @@ export function Home(props) {
                 <Button onClick={() => navigate('/add')}>
                     <h2>Add Note</h2>
                 </Button>
+                <Button>Test</Button>
             </Row>
             <Row>{displayList}</Row>
         </Container>
