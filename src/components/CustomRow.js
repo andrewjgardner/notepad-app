@@ -19,6 +19,7 @@ export function CustomRow(props) {
             <Col className="text-break text-truncate align-bottom">
                 {props.content}
             </Col>
+            <Button>Master Button</Button>
             <Col className="d-flex justify-content-end">
                 <Button
                     variant="outline-danger"
