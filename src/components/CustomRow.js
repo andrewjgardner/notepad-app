@@ -20,6 +20,7 @@ export function CustomRow(props) {
                 {props.content}
             </Col>
             <Button>Master Button</Button>
+            <Button>Row Button</Button>
             <Col className="d-flex justify-content-end">
                 <Button
                     variant="outline-danger"
